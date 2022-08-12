@@ -5,15 +5,15 @@ export const graphEndpoint = "";
 
 export const prices = [
   {
-    price: "1",
+    bet: "1",
   },
   {
-    price: "2",
+    bet: "2",
   },
   {
-    price: "3",
+    bet: "3",
   },
   {
-    price: "4",
+    bet: "4",
   },
 ];
