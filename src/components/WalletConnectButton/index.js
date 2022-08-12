@@ -22,11 +22,6 @@ const WalletConnectButton = () => {
   }, [error, account]);
 
   const activateProvider = async () => {
-    const customNetworkOptions = {
-      rpcUrl: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      chainId: Mumbai.chainId,
-    };
-
     const providerOptions = {
       injected: {
         display: {
@@ -81,7 +76,6 @@ const WalletConnectButton = () => {
 
   return (
     <div>
-      <div>{activateError}</div>
       {account ? (
         <div className="btn btn-primary" onClick={() => deactivate()}>
           Disconnect
