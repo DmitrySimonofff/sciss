@@ -80,11 +80,11 @@ const WalletConnectButton = () => {
   return (
     <div>
       {account ? (
-        <div className="btn btn-primary" onClick={() => deactivate()}>
+        <div className="btn btn-danger" onClick={() => deactivate()}>
           Disconnect
         </div>
       ) : (
-        <button className="btn btn-primary" onClick={activateProvider}>
+        <button className="btn btn-success" onClick={activateProvider}>
           Connect
         </button>
       )}
