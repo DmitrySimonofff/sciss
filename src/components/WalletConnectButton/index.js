@@ -3,7 +3,7 @@ import { useEthers, Mumbai } from "@usedapp/core";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
-import Torus from "@toruslabs/torus-embed/dist/types/embed";
+import Torus from "@toruslabs/torus-embed";
 
 const WalletConnectButton = () => {
   const { account, activate, deactivate, chainId, switchNetwork } = useEthers();
