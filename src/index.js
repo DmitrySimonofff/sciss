@@ -3,11 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { ChainId, DAppProvider, Mumbai } from "@usedapp/core";
+import { infuraId } from "./config";
 
 const config = {
   readOnlyChainId: Mumbai.chainId,
   readOnlyUrls: {
-    [Mumbai.chainId]: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+    [Mumbai.chainId]: `https://polygon-mumbai.infura.io/v3/${infuraId}`,
   },
 };
 

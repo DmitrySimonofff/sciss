@@ -4,6 +4,7 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import Torus from "@toruslabs/torus-embed";
+import { infuraId } from "../../config";
 
 const WalletConnectButton = () => {
   const { account, activate, deactivate, chainId, switchNetwork } = useEthers();
@@ -21,6 +22,8 @@ const WalletConnectButton = () => {
     }
   }, [error, account]);
 
+  console.log(process.env.INFURA_PROJECT_ID);
+
   const activateProvider = async () => {
     const providerOptions = {
       injected: {
@@ -34,14 +37,14 @@ const WalletConnectButton = () => {
         package: WalletConnectProvider,
         options: {
           bridge: "https://bridge.walletconnect.org",
-          infuraId: process.env.INFURA_PROJECT_ID,
+          infuraId: infuraId,
         },
       },
       coinbasewallet: {
         package: CoinbaseWalletSDK,
         options: {
           appName: "Rock Paper Scissors",
-          infuraId: process.env.INFURA_PROJECT_ID,
+          infuraId: infuraId,
           rpc: "",
           chainId: Mumbai.chainId,
           darkMode: false,
@@ -51,7 +54,7 @@ const WalletConnectButton = () => {
         package: Torus,
         options: {
           networkParams: {
-            host: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+            host: `https://polygon-mumbai.infura.io/v3/${infuraId}`,
             chainId: Mumbai.chainId,
             networkId: Mumbai.chainId,
           },
