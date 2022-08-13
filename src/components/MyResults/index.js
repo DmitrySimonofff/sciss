@@ -34,10 +34,7 @@ const MyResults = () => {
     });
 
     setResults(res.data.data.resultsDeclareds);
-    console.log(res.data.data.resultsDeclareds);
   };
-
-  console.log(results);
 
   const numToChoice = (num) => {
     if (num == 0) {
@@ -77,7 +74,6 @@ const MyResults = () => {
 
   return (
     <div>
-      <h1>{userAccount}</h1>
       <div className="d-flex justify-content-center align-items-center mw-80">
         <table class="table mw-80 ">
           <thead>

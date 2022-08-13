@@ -16,7 +16,7 @@ const Results = () => {
     const res = await axios.post(graphEndpoint, {
       query: `
       {
-        resultsDeclareds{
+        resultsDeclareds(orderBy:_winAmount,orderDirection: desc,where:{_result:0}){
           id,
           _betId,
           _choice,
@@ -38,7 +38,7 @@ const Results = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center mw-80">
-      <table class="table mw-80 ">
+      <table class="table table-warning mw-80 ">
         <thead>
           <tr>
             <th scope="col">Poisition</th>
@@ -55,9 +55,7 @@ const Results = () => {
                 <td>{shortenAddress(result._player)}</td>
                 <td>{ethers.utils.formatEther(result._winAmount)}</td>
                 <td>
-                  {moment
-                    .unix(result._time)
-                    .format("DD - MM - YYYY - HH:mm:ss")}
+                  {moment.unix(result._time).format("DD - MM - YYYY HH:mm:ss")}
                 </td>
               </tr>
             );
