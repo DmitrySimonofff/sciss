@@ -38,7 +38,7 @@ const Results = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center mw-80">
-      <table class="table mw-80">
+      <table class="table mw-80 ">
         <thead>
           <tr>
             <th scope="col">Poisition</th>
@@ -54,7 +54,11 @@ const Results = () => {
                 <th scope="row">{i + 1}</th>
                 <td>{shortenAddress(result._player)}</td>
                 <td>{ethers.utils.formatEther(result._winAmount)}</td>
-                <td>{moment.unix(result._time).format("DD - MM - YYYY")}</td>
+                <td>
+                  {moment
+                    .unix(result._time)
+                    .format("DD - MM - YYYY - HH:mm:ss")}
+                </td>
               </tr>
             );
           })}

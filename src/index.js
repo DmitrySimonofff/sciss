@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { ChainId, DAppProvider, Mumbai } from "@usedapp/core";
+import { DAppProvider, Mumbai } from "@usedapp/core";
 import { infuraId } from "./config";
 
 const config = {
