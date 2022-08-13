@@ -4,9 +4,40 @@ import paper from "../../images/paper.png";
 import scissors from "../../images/scissors.png";
 import { prices } from "../../config";
 import polygon from "../../images/polygon.svg";
+import { rpsInterface } from "../../sdk";
+import { rpsAddress } from "../../config";
+import { ethers } from "ethers";
+import { notify } from "../../helpers/alerts";
 
 const Choice = () => {
   const [select, setSelect] = useState(0);
+
+  const makeBet = async (amount) => {
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const rpsContract = new ethers.Contract(rpsAddress, rpsInterface, signer);
+      const weiAmount = ethers.utils.formatUnits(amount, "wei");
+
+      let tx = await rpsContract.makeBet(select, {
+        value: amount,
+      });
+      await notify(
+        "Waiting for Confirmation",
+        "Waiting for transaction to confirm",
+        "info"
+      );
+      await tx.wait();
+      await notify(
+        "Bet Successfull",
+        "You have successfully entered",
+        "success"
+      );
+    } catch (error) {
+      console.log(error);
+      notify("Error !", "Failed Bet Please Try Again", "error");
+    }
+  };
 
   return (
     <div>
@@ -61,7 +92,10 @@ const Choice = () => {
       </div>
       <div className="d-flex my-4 justify-content-center">
         {prices.map((price) => (
-          <button className="btn d-flex  justify-content-between  align-items-center btn-warning mx-4">
+          <button
+            onClick={() => makeBet(price.weiPrice)}
+            className="btn d-flex  justify-content-between  align-items-center btn-warning mx-4"
+          >
             {price.bet + "  "}
             <img className="mx-1" height="25px" src={polygon} />
           </button>
