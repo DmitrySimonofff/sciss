@@ -7,7 +7,9 @@ const Navbar = () => {
     <div>
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand">Navbar scroll</a>
+          <Link to="/" class="navbar-brand">
+            RockPaperScissors
+          </Link>
           <button
             class="navbar-toggler"
             type="button"

@@ -18,7 +18,7 @@ const MyResults = () => {
     const res = await axios.post(graphEndpoint, {
       query: `
       {
-        resultsDeclareds(first:10,where:{_player:"${userAccount}"}){
+        resultsDeclareds(where:{_player:"${userAccount}"}){
           id,
           _betId,
           _choice,
