@@ -34,6 +34,11 @@ const Navbar = () => {
                   Cabinet
                 </Link>
               </li>
+              <li class="nav-item">
+                <Link to="/mint" class="nav-link active" aria-current="page">
+                  Mint
+                </Link>
+              </li>
             </ul>
             <div class="d-flex">
               <WalletConnectButton />

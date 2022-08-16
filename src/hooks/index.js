@@ -1,5 +1,5 @@
-import { rpsAddress } from "../config";
-import { rpsInterface } from "../sdk";
+import { rpsAddress, cryptoHandsAddress } from "../config";
+import { rpsInterface, cryptoHandsInterface } from "../sdk";
 import { useCall } from "@usedapp/core";
 import { ethers } from "ethers";
 
@@ -51,6 +51,76 @@ export const useNftWon = (user) => {
       contract: new ethers.Contract(rpsAddress, rpsInterface),
       method: "s_nftWon",
       args: [user],
+    }) ?? {};
+  if (error) {
+    console.log(error.message);
+    return undefined;
+  }
+  return value?.[0];
+};
+
+export const useTotalSupply = () => {
+  const { value, error } =
+    useCall({
+      contract: new ethers.Contract(cryptoHandsAddress, cryptoHandsInterface),
+      method: "totalSupply",
+      args: [],
+    }) ?? {};
+  if (error) {
+    console.log(error.message);
+    return undefined;
+  }
+  return value?.[0];
+};
+
+export const useMaxSupply = () => {
+  const { value, error } =
+    useCall({
+      contract: new ethers.Contract(cryptoHandsAddress, cryptoHandsInterface),
+      method: "getMaxHandsAvailableToMint",
+      args: [],
+    }) ?? {};
+  if (error) {
+    console.log(error.message);
+    return undefined;
+  }
+  return value?.[0];
+};
+
+export const useMaxPerTransaction = () => {
+  const { value, error } =
+    useCall({
+      contract: new ethers.Contract(cryptoHandsAddress, cryptoHandsInterface),
+      method: "getMaxHandsPerTx",
+      args: [],
+    }) ?? {};
+  if (error) {
+    console.log(error.message);
+    return undefined;
+  }
+  return value?.[0];
+};
+
+export const useMaxPerAccount = () => {
+  const { value, error } =
+    useCall({
+      contract: new ethers.Contract(cryptoHandsAddress, cryptoHandsInterface),
+      method: "getNftMintLimit",
+      args: [],
+    }) ?? {};
+  if (error) {
+    console.log(error.message);
+    return undefined;
+  }
+  return value?.[0];
+};
+
+export const useCost = () => {
+  const { value, error } =
+    useCall({
+      contract: new ethers.Contract(cryptoHandsAddress, cryptoHandsInterface),
+      method: "getPrice",
+      args: [],
     }) ?? {};
   if (error) {
     console.log(error.message);
