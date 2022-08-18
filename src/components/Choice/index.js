@@ -17,7 +17,6 @@ const Choice = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const rpsContract = new ethers.Contract(rpsAddress, rpsInterface, signer);
-      const weiAmount = ethers.utils.formatUnits(amount, "wei");
 
       let tx = await rpsContract.makeBet(select, {
         value: amount,
