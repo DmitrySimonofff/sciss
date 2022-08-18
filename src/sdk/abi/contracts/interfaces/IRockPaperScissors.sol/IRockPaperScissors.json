@@ -47,6 +47,19 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "uint256",
+        "name": "_comissionPercentage",
+        "type": "uint256"
+      }
+    ],
+    "name": "ComissionPercentageUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "address",
         "name": "_newCryptoHands",
         "type": "address"

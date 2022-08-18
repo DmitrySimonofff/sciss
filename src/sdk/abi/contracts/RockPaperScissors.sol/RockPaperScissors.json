@@ -68,6 +68,19 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "uint256",
+        "name": "_comissionPercentage",
+        "type": "uint256"
+      }
+    ],
+    "name": "ComissionPercentageUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "address",
         "name": "_newCryptoHands",
         "type": "address"
@@ -217,9 +230,29 @@
   },
   {
     "inputs": [],
+    "name": "claim",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "deposite",
     "outputs": [],
     "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getComissionPercentage",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "_comissionPercentage",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -442,6 +475,19 @@
   {
     "inputs": [],
     "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_comissionPercentage",
+        "type": "uint256"
+      }
+    ],
+    "name": "updateComissionPercentage",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

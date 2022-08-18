@@ -72,6 +72,19 @@
   },
   {
     "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newmintLimit",
+        "type": "uint256"
+      }
+    ],
+    "name": "NftMintLimitUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
     "inputs": [],
     "name": "PresaleToggled",
     "type": "event"
@@ -253,6 +266,19 @@
   },
   {
     "inputs": [],
+    "name": "getNftMintLimit",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "_nftMintLimit",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getPrice",
     "outputs": [
       {
@@ -398,6 +424,19 @@
       }
     ],
     "name": "updateHiddenUri",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_nftMintLimit",
+        "type": "uint256"
+      }
+    ],
+    "name": "updateNftMintLimit",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
