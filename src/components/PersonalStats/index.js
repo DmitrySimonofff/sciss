@@ -8,6 +8,9 @@ import {
   useGamesWon,
   useNftWon,
 } from "../../hooks";
+import { rpsAddress } from "../../config";
+import { rpsInterface } from "../../sdk";
+import { notify } from "../../helpers/alerts";
 
 const PersonalStats = () => {
   const { account } = useEthers();
@@ -25,6 +28,31 @@ const PersonalStats = () => {
 
   console.log(userBalance);
 
+  const claim = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    try {
+      const rpsContract = await new ethers.Contract(
+        rpsAddress,
+        rpsInterface,
+        signer
+      );
+
+      let tx = await rpsContract.claim();
+      await notify(
+        "Waiting for confirmation",
+        "waiting for blockchain confirmation",
+        "info"
+      );
+      await tx.wait();
+
+      await notify("Success", "Succesfully claimed", "success");
+    } catch (error) {
+      await notify("Error", "Something went wrong", "error");
+    }
+  };
+
   return (
     <div className="d-flex justify-content-center">
       <h6 className="mx-2 my-2">Account: {shortenAddress(userAccount)}</h6>
@@ -37,6 +65,9 @@ const PersonalStats = () => {
       <h6 className="mx-2 my-2">Games Played: {formattedGamesPlayed}</h6>
       <h6 className="mx-2 my-2">Games Won: {formattedGamesWon}</h6>
       <h6 className="mx-2 my-2">Nft Won: {formattedNftWon}</h6>
+      <button onClick={() => claim()} className="btn btn-primary">
+        Claim
+      </button>
     </div>
   );
 };
