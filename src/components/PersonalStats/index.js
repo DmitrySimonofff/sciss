@@ -1,6 +1,5 @@
 import React from "react";
 import { useEthers, useEtherBalance, shortenAddress } from "@usedapp/core";
-import polygon from "../../images/polygon.svg";
 import { ethers } from "ethers";
 import {
   useNftWinPercentage,
@@ -11,6 +10,8 @@ import {
 import { rpsAddress } from "../../config";
 import { rpsInterface } from "../../sdk";
 import { notify } from "../../helpers/alerts";
+import { useBalanceOf, useTotalSupply } from "../../hooks";
+import { formatEther } from "ethers/lib/utils";
 
 const PersonalStats = () => {
   const { account } = useEthers();
@@ -23,10 +24,11 @@ const PersonalStats = () => {
   const formattedNftWon = nftWon ? nftWon.toString() : 0;
   const gamesWon = useGamesWon(userAccount);
   const formattedGamesWon = gamesWon ? gamesWon.toString() : 0;
-
+  const cryptoHandsBalance = useBalanceOf(userAccount);
+  const contractEthBalance = useEtherBalance(rpsAddress);
   const userBalance = etherBalance ? etherBalance : 0;
-
-  console.log(userBalance);
+  const totalSupply = useTotalSupply();
+  const formattedTotalSupply = totalSupply ? totalSupply.toNumber() : 0;
 
   const claim = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -65,9 +67,14 @@ const PersonalStats = () => {
       <h6 className="mx-2 my-2">Games Played: {formattedGamesPlayed}</h6>
       <h6 className="mx-2 my-2">Games Won: {formattedGamesWon}</h6>
       <h6 className="mx-2 my-2">Nft Won: {formattedNftWon}</h6>
-      <button onClick={() => claim()} className="btn btn-primary">
-        Claim
-      </button>
+
+      {cryptoHandsBalance > 0 ? (
+        <button onClick={() => claim()} className="btn btn-primary">
+          Claim{" "}
+          {(formatEther(contractEthBalance) / { formattedTotalSupply }) *
+            cryptoHandsBalance}
+        </button>
+      ) : null}
     </div>
   );
 };

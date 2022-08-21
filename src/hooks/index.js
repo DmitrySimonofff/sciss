@@ -128,3 +128,17 @@ export const useCost = () => {
   }
   return value?.[0];
 };
+
+export const useBalanceOf = (user) => {
+  const { value, error } =
+    useCall({
+      contract: new ethers.Contract(cryptoHandsAddress, cryptoHandsInterface),
+      method: "balanceOf",
+      args: [user],
+    }) ?? {};
+  if (error) {
+    console.log(error.message);
+    return undefined;
+  }
+  return value?.[0];
+};
