@@ -67,6 +67,7 @@ const PersonalStats = () => {
       <h6 className="mx-2 my-2">Games Played: {formattedGamesPlayed}</h6>
       <h6 className="mx-2 my-2">Games Won: {formattedGamesWon}</h6>
       <h6 className="mx-2 my-2">Nft Won: {formattedNftWon}</h6>
+      <h6 className="mx-2 my-2">Nft Balance: {cryptoHandsBalance}</h6>
 
       {cryptoHandsBalance > 0 ? (
         <button onClick={() => claim()} className="btn btn-primary">
