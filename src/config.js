@@ -6,19 +6,19 @@ export const graphEndpoint =
 
 export const prices = [
   {
-    bet: "1",
-    weiPrice: "1000000000000000000",
+    bet: "0.1",
+    weiPrice: "100000000000000000",
   },
   {
-    bet: "2",
-    weiPrice: "2000000000000000000",
+    bet: "0.2",
+    weiPrice: "200000000000000000",
   },
   {
-    bet: "3",
-    weiPrice: "3000000000000000000",
+    bet: "0.3",
+    weiPrice: "300000000000000000",
   },
   {
-    bet: "4",
-    weiPrice: "4000000000000000000",
+    bet: "0.4",
+    weiPrice: "400000000000000000",
   },
 ];

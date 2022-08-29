@@ -25,6 +25,9 @@ const PersonalStats = () => {
   const gamesWon = useGamesWon(userAccount);
   const formattedGamesWon = gamesWon ? gamesWon.toString() : 0;
   const cryptoHandsBalance = useBalanceOf(userAccount);
+  const formattedCryptoHandsBalance = cryptoHandsBalance
+    ? cryptoHandsBalance.toString()
+    : 0;
   const contractEthBalance = useEtherBalance(rpsAddress);
   const userBalance = etherBalance ? etherBalance : 0;
   const totalSupply = useTotalSupply();
@@ -67,7 +70,7 @@ const PersonalStats = () => {
       <h6 className="mx-2 my-2">Games Played: {formattedGamesPlayed}</h6>
       <h6 className="mx-2 my-2">Games Won: {formattedGamesWon}</h6>
       <h6 className="mx-2 my-2">Nft Won: {formattedNftWon}</h6>
-      <h6 className="mx-2 my-2">Nft Balance: {cryptoHandsBalance}</h6>
+      <h6 className="mx-2 my-2">Nft Balance: {formattedCryptoHandsBalance}</h6>
 
       {cryptoHandsBalance > 0 ? (
         <button onClick={() => claim()} className="btn btn-primary">
