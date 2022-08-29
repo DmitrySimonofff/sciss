@@ -72,8 +72,6 @@ const PersonalStats = () => {
       {cryptoHandsBalance > 0 ? (
         <button onClick={() => claim()} className="btn btn-primary">
           Claim{" "}
-          {(formatEther(contractEthBalance) / { formattedTotalSupply }) *
-            cryptoHandsBalance}
         </button>
       ) : null}
     </div>
