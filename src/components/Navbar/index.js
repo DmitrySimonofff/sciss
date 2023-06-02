@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <Link to="/" class="navbar-brand">
-            <img src="%PUBLIC%/logo.svg">
+            <img src="%PUBLIC_URL%/logo.svg">
           </Link>
           <button
             class="navbar-toggler"
