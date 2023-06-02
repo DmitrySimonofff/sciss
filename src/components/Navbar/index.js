@@ -1,6 +1,7 @@
 import React from "react";
 import WalletConnectButton from "../WalletConnectButton";
 import { Link } from "react-router-dom";
+import logos from "../../images/logo.svg";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <Link to="/" class="navbar-brand">         
-    Sciss
+            <img className="logo-1" height="27px" src={logos} />
           </Link>
           <button
             class="navbar-toggler"
