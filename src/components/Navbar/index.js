@@ -7,8 +7,7 @@ const Navbar = () => {
     <div>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <Link to="/" class="navbar-brand">
-            <!--img src="/logo.svg"-->
+          <Link to="/" class="navbar-brand">         
     Sciss
           </Link>
           <button
