@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'sequel';
+    font-style: normal;
+  		font-weight: 400;
+     src: url('sequel.ttf') format('truetype');
+}
 body {
  background: url(mbg.png), #FFFFFF; 
+ font-family: 'sequel', sans-serif;
 }  
