@@ -2,4 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  letter-spacing: 0.085em;
 }
+.nav-link {
+  color: #2B5A4D; 
+}  
+.navbar-nav .nav-link.active, .navbar-nav .show > .nav-link {
+  color: #2B5A4D; 
+}  
