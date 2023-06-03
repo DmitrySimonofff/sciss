@@ -7,4 +7,13 @@
 body {
  background: url(mbg.png), #FFFFFF; 
  font-family: 'sequel', sans-serif;
-}  
+}
+* {
+  font-family: 'sequel', sans-serif;
+    font-size: 14px;
+line-height: 16px;
+}
+.navbar {
+ text-transform: uppercase;
+color: #2B5A4D;   
+}    
