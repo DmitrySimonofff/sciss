@@ -4,6 +4,9 @@
   box-sizing: border-box;
   letter-spacing: 0.085em;
 }
+.navbar {
+  padding-top: 26px;
+} 
 .nav-link {
   color: #2B5A4D; 
   text-align: center;
@@ -25,5 +28,8 @@ justify-content: center;
   width: 158px;
 height: 54px;
   border-radius: 30px;
+} 
+.nav-item:hover {
+  transform: translate(5px, -5px); 
 } 
   
