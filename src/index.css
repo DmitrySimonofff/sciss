@@ -8,6 +8,7 @@
   color: #2B5A4D; 
   text-align: center;
 line-height: 40px;
+  background: url('images/but_bord.svg') no-repeat 0 0;
 }  
 .navbar-nav .nav-link.active, .navbar-nav .show > .nav-link {
   color: #2B5A4D; 
@@ -21,8 +22,8 @@ justify-content: center;
 .nav-item {
  position: relative;
   box-shadow: 0px 62px 167px rgba(53, 70, 160, 0.34), 0px 27.0463px 43.4119px rgba(53, 70, 160, 0.14), 0px 14.1788px 21.0649px rgba(53, 70, 160, 0.07), 0px 7.22212px 16.5187px rgba(53, 70, 160, 0.12), 0px 2.89113px 11.7815px rgba(53, 70, 160, 0.03);
-  background: url('images/but_bord.svg') no-repeat 0 0;
-  width: 150px;
+  width: 158px;
 height: 54px;
+  border-radius: 30px;
 } 
   
